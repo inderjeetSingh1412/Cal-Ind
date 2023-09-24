@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .upp{
+            width: 500px;
+            height: 200px;
+            border: 1px solid;
+            background-color: lightgrey;
+            display: none;
+        }
+        .low{
+            width: 500px;;
+            height: 380px;
+            border: 1px solid;
+            background-color: lightseagreen;
+            display: none;
+        }
+
+        
+
+        .first1{
+            width: 100px;
+            padding: 15px;
+            margin-left: 304px;
+            margin-top: 50px;
+            font-size: large;
+            background-color: lightseagreen;
+            color: white;
+            border: 0px;
+        }
+
+        .sec1{
+            padding: 15px;
+            margin-top: 60px;
+            float: right;
+            margin-top: 40px;
+            font-size: medium;
+            border-top: 0px;
+            background-color: white;
+
+        }
+
+        .sm1{
+            padding: 23px;
+            margin-top: 5px;
+            margin-left: 29px;
+            background-color: burlywood;
+            color: black;
+            border: 0px;
+            border-radius: 10%;
+            transition: ease all 2s;
+        }
+
+        .sm1:hover{
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: ease all 2s;
+            border-radius:30% ;
+
+        }
+
+        .btn{
+            margin-top: 40px;
+            margin-left: 10px;
+        }
+
+        .sm2{
+            padding: 23px;
+            margin-top: 5px;
+            margin-left: 29px;
+            background-color: black;
+            color: white;
+            border: 0px;
+            border-radius: 100%;
+            transition: ease all 2s;
+        }
+
+        .fbtn{
+            color: lightseagreen;
+            background-color: cornsilk;
+            transform: ease all 2s;
+            width: 350px;
+            border: 0px ;
+            height: 22px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .fbtn:hover{
+            cursor: pointer;
+            transform: translate(0px,+5px);
+            transition: ease all 2s;
+            background-color: lightseagreen;
+            color: aliceblue;
+
+        }
+    </style>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  
+    <script>
+        $(document).ready(function(){
+        $("#btnn").click(function(){
+
+
+            //alert();
+            $("#upp1").slideDown(1000);
+            $("#low1").slideDown(1000);
+        });
+    });
+
+        function doWrite(idd)
+        {
+            var a=idd.value;
+            var b=document.querySelector("#txtb").value;
+            b=b+a;
+
+            document.querySelector("#txtb").value=b;
+            
+        }
+//======================================================
+        function doEval()
+        {
+            var vl=document.querySelector("#txtb").value;
+            var sum=eval(vl);
+
+            document.querySelector("#txta").value=sum;
+        }
+//===========================================================
+        function doClear(a,b)
+        {
+            a.value="";
+            b.value="";
+        }
+//==========================================================
+        function doBack(b)
+        {
+            var sum=b.value.substr(0,b.value.length-1);
+            b.value=sum;
+        }
+
+        
+    </script>
+</head>
+<body style="background-color: burlywood; ">
+    <center>
+
+        <marquee behavior="alternate" direction="right" onmouseover="stop();" onmouseout="start();">
+            <input type="button" id="btnn" class="fbtn" value="Click here to use Calculator...">
+        </marquee>
+            <br><br>
+        
+        <div class="upp" id="upp1">
+            <div class="first">
+                <input type="text"  id="txta" class="first1" disabled>
+                <button onclick="doEval();" class="btn" style="padding: 15px; background-color: black; color: aliceblue; float: left; ">=</button>
+            </div>
+
+            <div class="sec">
+                <input type="text" class="sec1" id="txtb" autofocus>
+            </div>
+
+        </div>
+
+
+
+        <div class="low" id="low1">
+
+            <div class="one">
+                <input style="padding: 24px;" class="sm2" type="button" name="" id="dec" value="." onclick="doWrite(dec)">
+                <input class="sm2" type="button" name="" id="" value="B"onclick="doBack(txtb)">
+                <input class="sm2" type="button" name="" id="" value="C" onclick="doClear(txta,txtb);">
+                <input class="sm2" type="button" name="" id="mod" value="%" onclick="doWrite(mod)">
+                
+            </div>
+
+            <br><br>
+
+            <div class="one">
+                <input class="sm1" type="button" name="" id="one" value="1" onclick="doWrite(one)">
+                <input class="sm1" type="button" name="" id="two" value="2" onclick="doWrite(two)">
+                <input class="sm1" type="button" name="" id="three" value="3" onclick="doWrite(three)">
+                <input class="sm1" type="button" name="" id="pl" value="+" onclick="doWrite(pl)">
+                
+            </div>
+
+            <div class="one">
+                <input class="sm1" type="button"  id="four" value="4" onclick="doWrite(four)">
+                <input class="sm1" type="button"  id="five" value="5" onclick="doWrite(five)">
+                <input class="sm1" type="button"  id="six" value="6" onclick="doWrite(six)">
+                <input class="sm1" type="button"  id="sub" value="-" onclick="doWrite(sub)">
+                
+            </div>
+
+            <div class="one">
+                <input class="sm1" type="button"  id="seven" value="7" onclick="doWrite(seven)">
+                <input class="sm1" type="button"  id="eight" value="8" onclick="doWrite(eight)">
+                <input class="sm1" type="button"  id="nine" value="9" onclick="doWrite(nine)">
+                <input class="sm1" type="button"  id="mul" value="*" onclick="doWrite(mul)">
+                
+            </div>
+
+            <div class="one">
+                <input style="padding-left: 27px;" class="sm1" type="button" id="opb"  value="(" onclick="doWrite(opb)">
+                <input style="padding-left: 26px;" class="sm1" type="button" id="clb"  value=")" onclick="doWrite(clb)">
+                <input  style="padding-left: 24px;" class="sm1" type="button" id="zero"  value="0" onclick="doWrite(zero)">
+                <input style="padding-left: 25px;" class="sm1" type="button" id="divi"  value="/" onclick="doWrite(divi)">
+                
+            </div>
+
+            
+            
+        </div>
+    </center>
+</body>
+</html>
